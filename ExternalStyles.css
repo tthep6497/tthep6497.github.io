@@ -1,0 +1,80 @@
+body
+{
+    font-family: Arial, Helvetica, sans-serif;
+    margin:0;
+    padding:0;
+    background-color: blue;
+}
+
+header
+{
+text-align: center;
+padding: 10px 0;
+background-color: aqua;
+color:black;
+}
+
+header image
+{
+    height: 50px; 
+}
+
+nav ul
+{
+list-style: none;
+padding: 0;
+margin: 0;
+display: flex;
+justify-content: center;
+background-color: aqua;
+}
+nav ul li
+{
+    margin: 0 15px;
+}
+
+nav ul li a
+{
+    color: black;
+    text-decoration: none;
+    padding: 10px;
+    display: inline-block;
+}
+
+nav ul lu a:hover
+{
+background-color:aqua
+}
+
+main
+{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+main section
+{
+    flex: 2;
+    background-color: aqua;
+    padding: 20px;
+    margin-right: 20px;
+}
+
+aside
+{
+    flex: 1;
+    background-color: aqua;
+    padding: 20px;
+}
+
+footer
+{
+    background-color: aqua;
+    color:black;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
