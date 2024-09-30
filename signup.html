@@ -8,10 +8,87 @@
     <title>
     GameStore - SignUp
     </title>
+
+<!----BootStrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
     <!--Header section-->
-
+    <header class="bg-dark text-white text-center p-4">
+        <img src="images/logo.png" alt = "GameStore Logo" style="height: 50px;">
+      <h1>  
+        SignUp for Ted's GameStore
+        </h1>
+    </header>
     
+<!--Navigation-->
+
+<nav class= "navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class= "container-fluid">
+        <a class="navbar-brand" href="index.html"> Ted's GameStore
+            </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle ="collapse" data-bs-target ="#navbarNav"
+       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" >
+       <span class="navbar-toggler-icon">
+        </span>
+        </button>
+    <div class = "collapse navbar-collapse" id="navbarNav">
+        <ul class = "navbar-nav">
+            <li class = "nav-item"> <a class="nav-link active" href="index.html"></a></li>
+            <li class = "nav-item"> <a class="nav-link" href="Products"> </a></li>   
+            <li class = "nav-item"> <a class="nav-link" href="Cart"> </a></li>
+            <li class = "nav-item"> <a class="nav-link" href="Login"> </a></li>
+            <li class = "nav-item"> <a class="nav-link" href="signup.html"> Sign Up </a></li>
+            <li class = "nav-item"> <a class="nav-link" href= "#"Contact Us> </a></li>
+        </ul>
+    </div>
+    </div>
+</nav>
+
+<!---Sign Up form-->
+
+<main class = "container my-5">
+    <h2 class = "mb-4">
+        User SignUp
+    </h2>
+    <form action ="#" method="post" class="border p-4 bg-light">
+
+<!--UserName-->
+<div class="mb-3">
+    <label for="username" class="form-label">
+        UserName:
+    </label>
+    <input type="text" class="form-control" id="username" placeholder="Enter Username" required>
+</div>
+
+<!--Email-->
+<div class="mb-3">
+    <label for="email" class="form-label">
+        Email:
+    </label>
+    <input type="email" class="form-control" id="email" placeholder="Enter Email" required>
+</div>
+
+<!--Password-->
+<div class ="mb-3">
+    <label for "password" class="form label">
+        Password:
+    </label>
+    <input type="password" class="form-control" id="password" placeholder="Enter Password" required>
+</div>
+
+<!--Confirm Password-->
+<div class ="mb-3">
+    <label for "ConfirmPassword" class="form label">
+        Confirm Password:
+    </label>
+    <input type="password" class="form-control" id="ConfirmPassword" placeholder="Confirm Password" required>
+</div>
+
+<!--Submit-->
+<button type = "submit" class="btn btn-primary w-100">
+    Sign Up
+</button>
+</form>
+</main>
