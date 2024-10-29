@@ -22,8 +22,9 @@
     {
         color:#FF0000
         font-size: 0.9rem;
-        display:none;
+        display: none;
     }
+   
 </style>
 
 </head>
@@ -72,9 +73,11 @@
 <!--UserName-->
 <div class="mb-3">
     <label for="username" class="form-label">
-        UserName:
+        Username:
     </label>
-    <input type="text" class="form-control" id="username" placeholder="Enter Username" required>
+    <input type="text" class="form-control" id="username" placeholder="Enter Username" onfocusout="validate(this)" required>
+    <span class ="error-msg" id="Username Error"> Field Must be Filled
+    </span>
 </div>
 
 <!--Email-->
@@ -82,7 +85,9 @@
     <label for="email" class="form-label">
         Email:
     </label>
-    <input type="email" class="form-control" id="email" placeholder="Enter Email" required>
+    <input type="email" class="form-control" id="email" placeholder="Enter Email" onfocusout= "validate(this)" required>
+    <span class ="error-msg" id="Email Error"> Field Must be Filled
+    </span>
 </div>
 
 <!--Password-->
@@ -90,7 +95,9 @@
     <label for "password" class="form label">
         Password:
     </label>
-    <input type="password" class="form-control" id="password" placeholder="Enter Password" required>
+    <input type="password" class="form-control" id="password" placeholder="Enter Password" onfocusout= "validate(this)" required>
+    <span class ="error-msg" id="Password Error"> Field Must be Filled
+    </span>
 </div>
 
 <!--Confirm Password-->
@@ -98,29 +105,104 @@
     <label for "ConfirmPassword" class="form label">
         Confirm Password:
     </label>
-    <input type="password" class="form-control" id="ConfirmPassword" placeholder="Confirm Password" required>
+    <input type="password" class="form-control" id="ConfirmPassword" placeholder="Confirm Password" onfocusout= "validate(this)" required>
+    <span class ="error-msg" id="Confirm Password Error"> 
+    </span>
 </div>
-
-<!--JavaScript-->
-<script>
-    function validate(obj)
-    {
-        if(obj.value.trim()=="")
-        {
-            obj.style.borderColor = "#FF0000";
-            obj.nextElementSibling.style.display = "block";
-        }
-        else
-        {
-            obj.style.borderColor = "";
-            obj.nextElementSibling.style.display = "none";
-        }
-    }
-</script>
 
 <!--Submit-->
 <button type = "submit" class="btn btn-primary w-100">
     Sign Up
 </button>
 </form>
+<!---JSON-->
+<div id= "jsonOutput" class="mt-4 p-3 bg-light border" style="display: none;">
+    <h4>
+        Submitted
+    </h4>
+    <pre id="jsonData">
+        </pre>
+</div>
 </main>
+<!--JavaScript and Validation-->
+<script>
+    function validateForm()
+    {
+      //email
+      const email = document.getElementById('email');
+      const emailError = document.getElementById('emailError');
+      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      if (!email.value.match(emailPattern))
+      {
+        email.classList.add('error');
+        emailError.style.display = 'block';
+        isValid = false;
+      }
+      else
+      {
+        email.classList.remove('error')
+        emailError.style.display = 'none';
+      }
+
+      //username
+      const username = document.getElementById('username');
+      const usernameError = document.getElementById('usernameError');
+      if (username.value.trim() === '')
+      {
+        username.classList.add('error');
+        usernameError.style.display = 'block';
+        isValid = false;
+      }
+      else
+      {
+        username.classList.remove('error');
+        usernameError.style.display = 'none';
+      }
+
+      //password
+      const password = document.getElementById('password');
+      const passwordError = document.getElementById('passwordError');
+      if (password.value.trim() === '')
+      {
+        password.classList.add('error');
+        passwordError.style.display = 'block';
+        isValid = false;
+      }
+      else
+      {
+        password.classList.remove('error');
+        passwordError.style.display = 'none';
+      }
+
+      //confirm password
+      const confirmPassword = document.getElementId('confirmPassword');
+      const confirmPasswordError = document.getElementById('confirmPasswordError');
+      if (confirmPassword.value !== password.value || confirmPassword.value.trim() === '')
+      {
+        confirmPassword.classList.add('error');
+        confirmPasswordError.style.display = 'none';
+      }
+      return isValid;
+    }
+
+function submitForm()
+{
+ if (validateForm())
+{
+    const formDate = 
+    {
+        email: document.getElementById('email').value,
+        username: document.getElementById('username').value,
+        password: document.getElementById('password').value,
+        confirmPassword: document.getElementById('confirmPassword').value
+    }
+    //display the data
+    document.getElementById('jsonData').textContent = JSON.stringify(formData, null, 4);
+    document.getElementById('jsonOutput').style.display = 'block';
+}   
+}
+</script>
+
+</body>
+
+</html>
